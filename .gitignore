@@ -14,3 +14,6 @@ progress/
 
 # Drafts the swarm kept (tools/attempt_store.py): text, not tracked.
 drafts/
+
+# PC port run log (port/runtime/main.c)
+gt4_port.log
