@@ -3,6 +3,18 @@
 [![Code](https://decomp.dev/gustavocanepa/gt4-decomp.svg?mode=shield&measure=code&label=Code)](https://decomp.dev/gustavocanepa/gt4-decomp)
 [![Functions](https://decomp.dev/gustavocanepa/gt4-decomp.svg?mode=shield&measure=functions&label=Functions)](https://decomp.dev/gustavocanepa/gt4-decomp)
 
+> **This fork** ([WaimateWihongi/gt4-decomp](https://github.com/WaimateWihongi/gt4-decomp)) works
+> toward the native port by giving every function C, in two tiers:
+>
+> - `src/`: **matching** sources, byte-exact, proven by the full build exactly as upstream (and sent
+>   upstream).
+> - `nonmatching/`: **non-matching** C for the functions with no matching source yet. Each compiles
+>   and follows the original, but the header says how many instructions differ, and equivalence is
+>   **not** verified. The build never reads this folder, so `.text OK` still proves only `src/`.
+>
+> `python tools/nonmatching.py status` prints the tiers; `import` refreshes the tier from the best
+> drafts (tools/cpu_solve.py and hand drafts); `prune` drops files whose function now matches.
+
 A work-in-progress matching decompilation of the Gran Turismo 4 engine (PS2, `CORE.GT4`, NTSC-U
 SCUS-97328 v1.01): C++ source that compiles, with the original compiler, to the exact same
 instructions as the game. The long-term goal is a native port.
